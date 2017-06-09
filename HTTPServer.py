@@ -61,10 +61,10 @@ class HTTPServer(object):
 				cookie[k] = v
 		except:
 			pass
-		s.send(self._reponse(method, url, cookie, data, headers))
+		s.send(self._response(method, url, cookie, data, headers))
 		s.close()
 
-	def _reponse(self, method, url, cookie, data, headers):
+	def _response(self, method, url, cookie, data, headers):
 		d = b'HTTP/1.1 200 OK\r\nContent-Type: text/html;charset=utf-8\r\n\r\n'
 		d += b'<html><head><title>test</title></head><body>'
 		d += b'<div>Method: %s</div>' % method.encode('ASCII')
