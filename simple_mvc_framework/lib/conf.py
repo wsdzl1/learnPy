@@ -1,6 +1,9 @@
 from init import *
 
 class conf(object):
+
+	__repr__ = lambda self:self.data.__repr__()
+	__str__ = __repr__
 	
 	def __init__(self, _file='main.conf'):
 		self._filename = os.path.join(ROOT, 'conf', _file)
@@ -25,6 +28,12 @@ class conf(object):
 			return self.data[key]
 		except KeyError:
 			return None
+
+	def get(self, key, default=None):
+		v = self[key]
+		if v:
+			return v
+		return default
 
 	def __setitem__(self, key, value):
 		self.data[key] = value

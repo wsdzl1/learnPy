@@ -1,5 +1,10 @@
 from init import *
 
-class indexControler(object):
-	def __init__(self):
-		um = M('user')()
+msg = I('showMsg')
+class indexControler(Controler):
+	def index(self):
+		return msg(str(self.env))
+		return b'It works!'
+
+	def test(self):
+		return b'Test Method!'
